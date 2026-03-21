@@ -15,7 +15,7 @@
         <div>
           <p class="eyebrow">Snake Game</p>
           <h1>小宝贪吃蛇</h1>
-          <p class="subtitle">轻量、顺滑、手机电脑都能玩。彬哥，开局就冲高分～</p>
+          <p class="subtitle">轻量、顺滑，手机电脑都能玩，开局就冲高分～</p>
         </div>
         <div class="stats-card">
           <div class="stat">
@@ -35,6 +35,8 @@
 
       <main class="game-layout">
         <section class="board-panel">
+          <div class="board-glow board-glow-a"></div>
+          <div class="board-glow board-glow-b"></div>
           <div class="board-topbar">
             <div id="status" class="status-pill">按方向键开始</div>
             <div class="actions">
@@ -43,7 +45,8 @@
             </div>
           </div>
 
-          <div class="board-wrap">
+          <div class="board-stage">
+            <div class="board-wrap">
             <canvas id="game" width="480" height="480" aria-label="贪吃蛇游戏画布"></canvas>
             <div id="overlay" class="overlay visible">
               <div class="overlay-card">
@@ -53,10 +56,17 @@
               </div>
             </div>
           </div>
+
+            <div class="board-hint">
+              <span>⌨️ 方向键 / WASD 控制</span>
+              <span>␣ 空格暂停</span>
+              <span>📱 支持触控</span>
+            </div>
+          </div>
         </section>
 
         <aside class="sidebar">
-          <section class="panel">
+          <section class="panel info-panel">
             <h3>玩法说明</h3>
             <ul>
               <li>吃到食物就加分，身体变长。</li>

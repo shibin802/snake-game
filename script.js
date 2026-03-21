@@ -277,13 +277,17 @@ function draw() {
 
 window.addEventListener('keydown', (event) => {
   const key = event.key.toLowerCase();
+  const controlKeys = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright', ' ', 'w', 'a', 's', 'd'];
+
+  if (controlKeys.includes(key)) {
+    event.preventDefault();
+  }
 
   if (key === 'arrowup' || key === 'w') queueDirection(directions.up);
   else if (key === 'arrowdown' || key === 's') queueDirection(directions.down);
   else if (key === 'arrowleft' || key === 'a') queueDirection(directions.left);
   else if (key === 'arrowright' || key === 'd') queueDirection(directions.right);
   else if (key === ' ') {
-    event.preventDefault();
     if (!started && !gameOver) startGame();
     else togglePause();
   }

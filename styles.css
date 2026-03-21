@@ -237,3 +237,137 @@ canvas {
   .middle-row { width: auto; }
   .control-btn { width: 68px; height: 68px; }
 }
+
+
+body {
+  overflow-x: hidden;
+}
+
+.app-shell {
+  max-width: 1240px;
+  padding: 28px 24px 36px;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -80px -80px auto;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(110,231,183,0.16), rgba(110,231,183,0));
+  pointer-events: none;
+}
+
+.subtitle {
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.board-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+}
+
+.board-stage {
+  position: relative;
+}
+
+.board-glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  filter: blur(48px);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.board-glow-a {
+  background: rgba(96, 165, 250, 0.45);
+  top: -140px;
+  left: -100px;
+}
+
+.board-glow-b {
+  background: rgba(110, 231, 183, 0.35);
+  right: -120px;
+  bottom: 40px;
+}
+
+.board-topbar {
+  position: relative;
+  z-index: 1;
+}
+
+.board-wrap {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 18px 40px rgba(0,0,0,0.28);
+}
+
+.board-hint {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.board-hint span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+}
+
+.sidebar {
+  align-content: start;
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(12,22,36,0.88), rgba(8,16,28,0.92));
+}
+
+.info-panel ul li + li {
+  margin-top: 6px;
+}
+
+.controls-panel {
+  position: sticky;
+  top: 24px;
+}
+
+.control-btn {
+  transition: transform .15s ease, background .2s ease, border-color .2s ease;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(110, 231, 183, 0.32);
+}
+
+@media (max-width: 980px) {
+  .controls-panel {
+    position: static;
+  }
+
+  .board-hint {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell { padding: 14px 14px 28px; }
+  .board-panel { padding: 16px; }
+  .board-hint span { width: 100%; justify-content: center; }
+}
