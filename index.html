@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>小宝贪吃蛇</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Snake Game</p>
+          <h1>小宝贪吃蛇</h1>
+          <p class="subtitle">轻量、顺滑、手机电脑都能玩。彬哥，开局就冲高分～</p>
+        </div>
+        <div class="stats-card">
+          <div class="stat">
+            <span>当前分数</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="stat">
+            <span>最高分</span>
+            <strong id="best-score">0</strong>
+          </div>
+          <div class="stat">
+            <span>速度</span>
+            <strong id="speed">1x</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="board-panel">
+          <div class="board-topbar">
+            <div id="status" class="status-pill">按方向键开始</div>
+            <div class="actions">
+              <button id="pause-btn" class="btn secondary">暂停</button>
+              <button id="restart-btn" class="btn primary">重新开始</button>
+            </div>
+          </div>
+
+          <div class="board-wrap">
+            <canvas id="game" width="480" height="480" aria-label="贪吃蛇游戏画布"></canvas>
+            <div id="overlay" class="overlay visible">
+              <div class="overlay-card">
+                <h2 id="overlay-title">准备开吃</h2>
+                <p id="overlay-text">电脑用方向键 / WASD，手机用下方按钮控制。</p>
+                <button id="start-btn" class="btn primary large">开始游戏</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="panel">
+            <h3>玩法说明</h3>
+            <ul>
+              <li>吃到食物就加分，身体变长。</li>
+              <li>撞墙或撞到自己，游戏结束。</li>
+              <li>分数越高，速度越快。</li>
+              <li>空格键可暂停 / 继续。</li>
+            </ul>
+          </section>
+
+          <section class="panel controls-panel">
+            <h3>触控方向键</h3>
+            <div class="touch-controls">
+              <button class="control-btn" data-dir="up">↑</button>
+              <div class="middle-row">
+                <button class="control-btn" data-dir="left">←</button>
+                <button class="control-btn" data-dir="down">↓</button>
+                <button class="control-btn" data-dir="right">→</button>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
