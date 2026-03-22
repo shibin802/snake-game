@@ -39,7 +39,12 @@
           <div class="board-glow board-glow-b"></div>
           <div class="board-topbar">
             <div id="status" class="status-pill">按方向键开始</div>
-            <div class="actions">
+            <div class="actions actions-top">
+              <div class="speed-picker" aria-label="速度选择">
+                <button class="speed-btn active" data-speed="slow">慢速</button>
+                <button class="speed-btn" data-speed="normal">标准</button>
+                <button class="speed-btn" data-speed="fast">加速</button>
+              </div>
               <button id="pause-btn" class="btn secondary">暂停</button>
               <button id="restart-btn" class="btn primary">重新开始</button>
             </div>
@@ -57,12 +62,6 @@
             </div>
           </div>
 
-            <div class="board-hint">
-              <span>⌨️ 方向键 / WASD 控制</span>
-              <span>␣ 空格暂停</span>
-              <span>📱 支持触控</span>
-            </div>
-
             <section class="panel controls-panel controls-panel-mobile">
               <h3>触控方向键</h3>
               <div class="touch-controls">
@@ -74,6 +73,13 @@
                 </div>
               </div>
             </section>
+
+            <div class="board-hint board-hint-bottom">
+              <span>⌨️ 方向键 / WASD 控制</span>
+              <span>␣ 空格暂停</span>
+              <span>📱 支持触控</span>
+            </div>
+
           </div>
         </section>
 

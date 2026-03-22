@@ -476,3 +476,61 @@ html, body, .app-shell, .board-panel, .board-wrap, canvas, .control-btn, .touch-
 .control-btn, canvas {
   -webkit-tap-highlight-color: transparent;
 }
+
+
+.speed-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line);
+}
+
+.speed-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .18s ease;
+}
+
+.speed-btn.active {
+  background: linear-gradient(135deg, rgba(110,231,183,0.95), rgba(52,211,153,0.95));
+  color: #042617;
+}
+
+.actions-top {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.board-hint-bottom {
+  margin-top: 14px;
+}
+
+@media (max-width: 720px) {
+  .actions-top {
+    flex-direction: column;
+  }
+
+  .speed-picker {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .speed-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .controls-panel-mobile {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -14,8 +14,13 @@ const restartBtn = document.getElementById('restart-btn');
 
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
-const baseSpeed = 175;
-const minSpeed = 90;
+const speedProfiles = {
+  slow: { base: 210, min: 120, label: '0.8x' },
+  normal: { base: 175, min: 90, label: '1x' },
+  fast: { base: 145, min: 75, label: '1.2x' }
+};
+
+let currentSpeedMode = 'slow';
 const bestScoreKey = 'snake-best-score-v1';
 
 const directions = {
@@ -82,18 +87,30 @@ function runLoop() {
 }
 
 function getSpeedDelay() {
-  return Math.max(minSpeed, baseSpeed - Math.floor(score / 5) * 8);
+  const profile = speedProfiles[currentSpeedMode];
+  return Math.max(profile.min, profile.base - Math.floor(score / 5) * 8);
 }
 
 function updateHud() {
   scoreEl.textContent = score;
   bestScoreEl.textContent = bestScore;
-  const speedLevel = (baseSpeed / getSpeedDelay()).toFixed(1).replace('.0', '');
-  speedEl.textContent = `${speedLevel}x`;
+  speedEl.textContent = speedProfiles[currentSpeedMode].label;
 }
 
 function setStatus(text) {
   statusEl.textContent = text;
+}
+
+function setSpeedMode(mode) {
+  if (!speedProfiles[mode]) return;
+  currentSpeedMode = mode;
+  document.querySelectorAll('.speed-btn').forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.speed === mode);
+  });
+  updateHud();
+  if (started && !paused && !gameOver) {
+    runLoop();
+  }
 }
 
 function showOverlay(title, text, buttonText = '开始游戏') {
@@ -291,6 +308,12 @@ window.addEventListener('keydown', (event) => {
     if (!started && !gameOver) startGame();
     else togglePause();
   }
+});
+
+document.querySelectorAll('.speed-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setSpeedMode(btn.dataset.speed);
+  });
 });
 
 document.querySelectorAll('.control-btn').forEach(btn => {
