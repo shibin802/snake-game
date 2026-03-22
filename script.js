@@ -353,3 +353,36 @@ document.addEventListener('gesturestart', (event) => {
 document.addEventListener('dblclick', (event) => {
   event.preventDefault();
 }, { passive: false });
+
+
+// Swipe gesture controls on canvas
+let swipeStartX = 0;
+let swipeStartY = 0;
+
+canvas.addEventListener('touchstart', (event) => {
+  const touch = event.changedTouches[0];
+  swipeStartX = touch.clientX;
+  swipeStartY = touch.clientY;
+}, { passive: true });
+
+canvas.addEventListener('touchmove', (event) => {
+  event.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchend', (event) => {
+  const touch = event.changedTouches[0];
+  const dx = touch.clientX - swipeStartX;
+  const dy = touch.clientY - swipeStartY;
+
+  if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+
+  if (!started && !gameOver) startGame();
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    if (dx > 20) queueDirection(directions.right);
+    else if (dx < -20) queueDirection(directions.left);
+  } else {
+    if (dy > 20) queueDirection(directions.down);
+    else if (dy < -20) queueDirection(directions.up);
+  }
+}, { passive: true });

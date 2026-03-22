@@ -469,7 +469,7 @@ body {
 }
 
 
-html, body, .app-shell, .board-panel, .board-wrap, canvas, .control-btn, .touch-controls {
+canvas, .control-btn {
   touch-action: none;
 }
 
