@@ -467,3 +467,12 @@ body {
     font-size: 30px;
   }
 }
+
+
+html, body, .app-shell, .board-panel, .board-wrap, canvas, .control-btn, .touch-controls {
+  touch-action: manipulation;
+}
+
+.control-btn, canvas {
+  -webkit-tap-highlight-color: transparent;
+}
