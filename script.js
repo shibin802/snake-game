@@ -15,9 +15,9 @@ const restartBtn = document.getElementById('restart-btn');
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
 const speedProfiles = {
-  slow: { base: 210, min: 120, label: '0.8x' },
-  normal: { base: 175, min: 90, label: '1x' },
-  fast: { base: 145, min: 75, label: '1.2x' }
+  slow: { base: 260, min: 170, label: '慢速' },
+  normal: { base: 185, min: 105, label: '标准' },
+  fast: { base: 130, min: 80, label: '加速' }
 };
 
 let currentSpeedMode = 'slow';
@@ -108,6 +108,7 @@ function setSpeedMode(mode) {
     btn.classList.toggle('active', btn.dataset.speed === mode);
   });
   updateHud();
+  setStatus(`当前速度：${speedProfiles[mode].label}`);
   if (started && !paused && !gameOver) {
     runLoop();
   }
