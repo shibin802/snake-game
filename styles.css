@@ -84,15 +84,38 @@ h1 { font-size: clamp(28px, 3.5vw, 44px); line-height: 1.05; }
   #game { max-width: 360px; }
 }
 
-/* Tablet iPad */
+/* Tablet portrait */
 @media (min-width: 721px) and (max-width: 1024px) {
   .app-shell { padding: 16px; }
-  .hero { padding: 18px; margin-bottom: 16px; }
-  h1 { font-size: 28px; }
-  #game { max-width: 340px; max-height: 45vh; }
+  .hero { padding: 16px; margin-bottom: 14px; }
+  h1 { font-size: 26px; }
+  .subtitle { font-size: 13px; margin-top: 6px; }
+  #game { max-width: 300px; max-height: 38vh; }
 }
+
+/* Tablet/iPad landscape: use compact single-screen layout */
 @media (min-width: 721px) and (max-width: 1024px) and (orientation: landscape) {
-  #game { max-height: 42vh; max-width: 42vh; }
+  html, body { height: 100dvh; overflow: hidden; }
+  .app-shell {
+    height: 100dvh; padding: 10px 16px;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .hero { padding: 12px 16px; margin-bottom: 10px; flex-direction: row; align-items: center; }
+  .hero > div:first-child { flex: 1; }
+  .stats-card { grid-template-columns: repeat(3, 1fr); min-width: 180px; gap: 8px; }
+  .stat { padding: 8px 10px; }
+  .stat strong { font-size: 20px; }
+  h1 { font-size: 24px; }
+  .subtitle { display: none; }
+  .game-layout { flex: 1; min-height: 0; display: flex; flex-direction: row; gap: 16px; }
+  .board-panel { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 12px; }
+  .board-stage { flex: 1; min-height: 0; display: flex; }
+  .board-wrap { flex: 1; min-height: 0; display: flex; justify-content: center; align-items: center; }
+  #game { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+  .sidebar { width: 220px; flex-shrink: 0; }
+  .board-hint { display: none; }
+  .board-topbar { margin-bottom: 8px; }
+  .board-glow { display: none; }
 }
 
 /* ===== Mobile ===== */
