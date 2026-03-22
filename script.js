@@ -14,8 +14,8 @@ const restartBtn = document.getElementById('restart-btn');
 
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
-const baseSpeed = 140;
-const minSpeed = 65;
+const baseSpeed = 175;
+const minSpeed = 90;
 const bestScoreKey = 'snake-best-score-v1';
 
 const directions = {
@@ -325,3 +325,7 @@ document.addEventListener('touchend', (event) => {
 document.addEventListener('gesturestart', (event) => {
   event.preventDefault();
 });
+
+document.addEventListener('dblclick', (event) => {
+  event.preventDefault();
+}, { passive: false });

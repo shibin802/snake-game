@@ -470,7 +470,7 @@ body {
 
 
 html, body, .app-shell, .board-panel, .board-wrap, canvas, .control-btn, .touch-controls {
-  touch-action: manipulation;
+  touch-action: none;
 }
 
 .control-btn, canvas {
