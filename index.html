@@ -11,25 +11,35 @@
   </head>
   <body>
     <div class="app-shell">
-      <header class="hero">
+      <!-- Desktop hero -->
+      <header class="hero desktop-only">
         <div>
           <p class="eyebrow">Snake Game</p>
           <h1>小宝贪吃蛇</h1>
           <p class="subtitle">轻量、顺滑，手机电脑都能玩，开局就冲高分～</p>
         </div>
         <div class="stats-card">
-          <div class="stat">
-            <span>当前分数</span>
-            <strong id="score">0</strong>
+          <div class="stat"><span>当前分数</span><strong id="score-d">0</strong></div>
+          <div class="stat"><span>最高分</span><strong id="best-score-d">0</strong></div>
+          <div class="stat"><span>速度</span><strong id="speed-d">1x</strong></div>
+        </div>
+      </header>
+
+      <!-- Mobile top bar -->
+      <header class="mobile-bar mobile-only">
+        <span class="mobile-title">🐍 贪吃蛇</span>
+        <div class="mobile-stats">
+          <div class="m-stat"><span>分数</span><strong id="score-m">0</strong></div>
+          <div class="m-stat"><span>最高</span><strong id="best-score-m">0</strong></div>
+        </div>
+        <div class="mobile-bar-actions">
+          <div class="speed-picker-m">
+            <button class="speed-btn-m active" data-speed="slow">慢</button>
+            <button class="speed-btn-m" data-speed="normal">中</button>
+            <button class="speed-btn-m" data-speed="fast">快</button>
           </div>
-          <div class="stat">
-            <span>最高分</span>
-            <strong id="best-score">0</strong>
-          </div>
-          <div class="stat">
-            <span>速度</span>
-            <strong id="speed">1x</strong>
-          </div>
+          <button id="pause-btn-m" class="btn-icon" type="button">⏸</button>
+          <button id="restart-btn-m" class="btn-icon" type="button">🔄</button>
         </div>
       </header>
 
@@ -37,53 +47,54 @@
         <section class="board-panel">
           <div class="board-glow board-glow-a"></div>
           <div class="board-glow board-glow-b"></div>
-          <div class="board-topbar">
+
+          <!-- Desktop topbar -->
+          <div class="board-topbar desktop-only">
             <div id="status" class="status-pill">按方向键开始</div>
             <div class="actions actions-top">
-              <div class="speed-picker" aria-label="速度选择">
+              <div class="speed-picker">
                 <button class="speed-btn active" data-speed="slow">慢速</button>
                 <button class="speed-btn" data-speed="normal">标准</button>
                 <button class="speed-btn" data-speed="fast">加速</button>
               </div>
-              <button id="pause-btn" class="btn secondary">暂停</button>
-              <button id="restart-btn" class="btn primary">重新开始</button>
+              <button id="pause-btn" class="btn secondary" type="button">暂停</button>
+              <button id="restart-btn" class="btn primary" type="button">重新开始</button>
             </div>
           </div>
 
+          <!-- Game area -->
           <div class="board-stage">
             <div class="board-wrap">
-            <canvas id="game" width="480" height="480" aria-label="贪吃蛇游戏画布"></canvas>
-            <div id="overlay" class="overlay visible">
-              <div class="overlay-card">
-                <h2 id="overlay-title">准备开吃</h2>
-                <p id="overlay-text">电脑用方向键 / WASD，手机用下方按钮控制。</p>
-                <button id="start-btn" class="btn primary large">开始游戏</button>
+              <canvas id="game" width="480" height="480"></canvas>
+              <div id="overlay" class="overlay visible">
+                <div class="overlay-card">
+                  <h2 id="overlay-title">准备开吃</h2>
+                  <p id="overlay-text">电脑用方向键 / WASD，手机用下方按钮控制。</p>
+                  <button id="start-btn" class="btn primary large" type="button">开始游戏</button>
+                </div>
               </div>
             </div>
           </div>
 
-            <section class="panel controls-panel controls-panel-mobile">
-              <h3>触控方向键</h3>
-              <div class="touch-controls">
-                <button class="control-btn" data-dir="up">↑</button>
-                <div class="middle-row">
-                  <button class="control-btn" data-dir="left">←</button>
-                  <button class="control-btn" data-dir="down">↓</button>
-                  <button class="control-btn" data-dir="right">→</button>
-                </div>
-              </div>
-            </section>
-
-            <div class="board-hint board-hint-bottom">
-              <span>⌨️ 方向键 / WASD 控制</span>
-              <span>␣ 空格暂停</span>
-              <span>📱 支持触控</span>
+          <!-- Mobile D-pad -->
+          <div class="dpad-area mobile-only">
+            <div class="dpad-wrap">
+              <button class="d-btn d-up" data-dir="up" type="button">▲</button>
+              <button class="d-btn d-left" data-dir="left" type="button">◀</button>
+              <button class="d-btn d-right" data-dir="right" type="button">▶</button>
+              <button class="d-btn d-down" data-dir="down" type="button">▼</button>
             </div>
+          </div>
 
+          <!-- Desktop hints -->
+          <div class="board-hint board-hint-bottom desktop-only">
+            <span>⌨️ 方向键 / WASD</span>
+            <span>␣ 空格暂停</span>
+            <span>📱 支持触控</span>
           </div>
         </section>
 
-        <aside class="sidebar">
+        <aside class="sidebar desktop-only">
           <section class="panel info-panel">
             <h3>玩法说明</h3>
             <ul>
@@ -94,7 +105,7 @@
             </ul>
           </section>
 
-          <section class="panel controls-panel controls-panel-desktop">
+          <section class="panel controls-panel">
             <h3>触控方向键</h3>
             <div class="touch-controls">
               <button class="control-btn" data-dir="up">↑</button>
