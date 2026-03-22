@@ -154,7 +154,11 @@ h1 {
 canvas {
   display: block;
   width: 100%;
+  max-width: 480px;
+  max-height: 55vh;
   aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  object-fit: contain;
   background: linear-gradient(180deg, rgba(5,10,18,0.85), rgba(8,15,25,0.95));
 }
 
@@ -468,6 +472,82 @@ body {
   }
 }
 
+
+/* Tablet / iPad adaptation (720px - 1024px) */
+@media (min-width: 721px) and (max-width: 1024px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  .hero {
+    padding: 18px;
+    margin-bottom: 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stats-card {
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .stat {
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .stat strong {
+    font-size: 22px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .game-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .board-panel {
+    padding: 16px;
+  }
+
+  canvas {
+    max-height: 50vh;
+    max-width: 50vh;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 721px) and (max-width: 1024px) and (orientation: landscape) {
+  .hero {
+    flex-direction: row;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+
+  .stats-card {
+    min-width: 200px;
+  }
+
+  canvas {
+    max-height: 45vh;
+    max-width: 45vh;
+  }
+}
 
 canvas, .control-btn {
   touch-action: none;
