@@ -371,3 +371,99 @@ body {
   .board-panel { padding: 16px; }
   .board-hint span { width: 100%; justify-content: center; }
 }
+
+
+.controls-panel-mobile {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+
+  .hero .stats-card {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .hero .stat {
+    padding: 12px 10px;
+    text-align: center;
+  }
+
+  .hero .stat strong {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .game-layout {
+    gap: 14px;
+  }
+
+  .board-panel {
+    padding: 14px;
+  }
+
+  .board-topbar {
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .status-pill {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .board-wrap {
+    border-radius: 20px;
+  }
+
+  .board-hint {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .board-hint span {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  .controls-panel-desktop,
+  .info-panel {
+    display: none;
+  }
+
+  .controls-panel-mobile {
+    display: block;
+    margin-top: 12px;
+    padding: 16px 14px 14px;
+    border-radius: 20px;
+  }
+
+  .controls-panel-mobile h3 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .touch-controls {
+    gap: 10px;
+  }
+
+  .middle-row {
+    gap: 10px;
+  }
+
+  .control-btn {
+    width: 76px;
+    height: 76px;
+    font-size: 30px;
+  }
+}
